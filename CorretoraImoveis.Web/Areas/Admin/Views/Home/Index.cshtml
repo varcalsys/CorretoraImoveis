@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h2>Eternity Clinica Agendamento Online.</h2>
+    <p class="lead">ASP.NET Identity é o novo componente de membership que sempre quisermos ter sem precisar fazer.</p>
+    <p><a href="http://www.varcalsys.com.br" target="_blank" class="btn btn-primary btn-large">Aprenda mais &raquo;</a></p>
+</div>
+
+@{
+
+    if (TempData["AvisoEmail"] != null)
+    {
+        <h4 class="text-danger">@TempData["AvisoEmail"]</h4>
+    }
+}
+
+

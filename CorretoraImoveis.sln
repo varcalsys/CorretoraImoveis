@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{C1FBBC22-0366-4C63-9FC1-A45E28BD1DE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{49082765-0F8B-4B33-8530-B3604849EACA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{0DE50793-F3B0-4873-A79B-F53416F0D5DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{44356528-932C-41D7-BB36-882DF4BF7F41}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{E8B207AC-F8E6-4C3C-80D3-7AACBD6446F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - Util", "4.2 - Util", "{A0D2B3D5-17B4-40BC-A61E-D885F79C3D45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorretoraImoveis.Data", "CorretoraImoveis.Data\CorretoraImoveis.Data.csproj", "{3E9B3FDB-09C8-493B-B024-8DE25562AE69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.3 - Identity", "4.3 - Identity", "{0E596926-EBE1-4603-890A-72D2BB173F01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorretoraImoveis.Domain", "CorretoraImoveis.Domain\CorretoraImoveis.Domain.csproj", "{7540B729-F2AB-4241-9632-D987FBA784CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorretoraImoveis.App", "CorretoraImoveis.App\CorretoraImoveis.App.csproj", "{A2EE4299-579A-4C96-A287-A4E2C97C645F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorretoraImoveis.Web", "CorretoraImoveis.Web\CorretoraImoveis.Web.csproj", "{02981875-090F-4F2B-9390-56935FCA7A42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorretoraImoveis.Security", "CorretoraImoveis.Security\CorretoraImoveis.Security.csproj", "{0855CF35-6438-4F18-83B1-2E27A0F41440}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorretoraImoveis.Util", "CorretoraImoveis.IoC\CorretoraImoveis.Util.csproj", "{4E8C45DB-8761-4D75-A7A9-CB9BE1FDF25A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E9B3FDB-09C8-493B-B024-8DE25562AE69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E9B3FDB-09C8-493B-B024-8DE25562AE69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E9B3FDB-09C8-493B-B024-8DE25562AE69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E9B3FDB-09C8-493B-B024-8DE25562AE69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7540B729-F2AB-4241-9632-D987FBA784CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7540B729-F2AB-4241-9632-D987FBA784CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7540B729-F2AB-4241-9632-D987FBA784CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7540B729-F2AB-4241-9632-D987FBA784CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2EE4299-579A-4C96-A287-A4E2C97C645F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2EE4299-579A-4C96-A287-A4E2C97C645F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2EE4299-579A-4C96-A287-A4E2C97C645F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2EE4299-579A-4C96-A287-A4E2C97C645F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02981875-090F-4F2B-9390-56935FCA7A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02981875-090F-4F2B-9390-56935FCA7A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02981875-090F-4F2B-9390-56935FCA7A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02981875-090F-4F2B-9390-56935FCA7A42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0855CF35-6438-4F18-83B1-2E27A0F41440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0855CF35-6438-4F18-83B1-2E27A0F41440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0855CF35-6438-4F18-83B1-2E27A0F41440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0855CF35-6438-4F18-83B1-2E27A0F41440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E8C45DB-8761-4D75-A7A9-CB9BE1FDF25A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E8C45DB-8761-4D75-A7A9-CB9BE1FDF25A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E8C45DB-8761-4D75-A7A9-CB9BE1FDF25A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E8C45DB-8761-4D75-A7A9-CB9BE1FDF25A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E8B207AC-F8E6-4C3C-80D3-7AACBD6446F0} = {44356528-932C-41D7-BB36-882DF4BF7F41}
+		{A0D2B3D5-17B4-40BC-A61E-D885F79C3D45} = {44356528-932C-41D7-BB36-882DF4BF7F41}
+		{3E9B3FDB-09C8-493B-B024-8DE25562AE69} = {E8B207AC-F8E6-4C3C-80D3-7AACBD6446F0}
+		{0E596926-EBE1-4603-890A-72D2BB173F01} = {44356528-932C-41D7-BB36-882DF4BF7F41}
+		{7540B729-F2AB-4241-9632-D987FBA784CD} = {0DE50793-F3B0-4873-A79B-F53416F0D5DE}
+		{A2EE4299-579A-4C96-A287-A4E2C97C645F} = {49082765-0F8B-4B33-8530-B3604849EACA}
+		{02981875-090F-4F2B-9390-56935FCA7A42} = {C1FBBC22-0366-4C63-9FC1-A45E28BD1DE6}
+		{0855CF35-6438-4F18-83B1-2E27A0F41440} = {0E596926-EBE1-4603-890A-72D2BB173F01}
+		{4E8C45DB-8761-4D75-A7A9-CB9BE1FDF25A} = {A0D2B3D5-17B4-40BC-A61E-D885F79C3D45}
+	EndGlobalSection
+EndGlobal
