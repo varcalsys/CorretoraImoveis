@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IAppBase.cs" />
+    <Compile Include="Contracts\IFotoApp.cs" />
     <Compile Include="Contracts\IImovelApp.cs" />
+    <Compile Include="FotoApp.cs" />
     <Compile Include="ImovelApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

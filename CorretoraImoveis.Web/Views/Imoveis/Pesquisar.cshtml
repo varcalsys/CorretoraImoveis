@@ -1,0 +1,134 @@
+﻿@model IEnumerable<CorretoraImoveis.Domain.Entities.Imovel>
+@{
+    ViewBag.Title = "Pesquisar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="filter">
+    <h1 class="osLight">Filtrar seus resultados</h1>
+    <a href="#" class="handleFilter"><span class="icon-equalizer"></span></a>
+    <div class="clearfix"></div>
+    <form class="filterForm">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 formItem">
+                <div class="formField">
+                    <label>Tipo de Imóvel</label>
+                    <a href="#" data-toggle="dropdown" class="btn btn-gray dropdown-btn dropdown-toggle propTypeSelect">
+                        <span class="dropdown-label">Todos</span>
+                        <span class="fa fa-angle-down dsArrow"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-select full" role="menu">
+                        <li class="active"><input type="radio" name="pType" checked="checked"><a href="#">Todos</a></li>
+                        <li><input type="radio" name="pType"><a href="#">Casa</a></li>
+                        <li><input type="radio" name="pType"><a href="#">Apartamento</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 formItem">
+                <div class="formField">
+                    <label>Valor</label>
+                    <div class="slider priceSlider">
+                        <div class="sliderTooltip">
+                            <div class="stArrow"></div>
+                            <div class="stLabel"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 formItem">
+                <div class="formField">
+                    <label>Área</label>
+                    <div class="slider areaSlider">
+                        <div class="sliderTooltip">
+                            <div class="stArrow"></div>
+                            <div class="stLabel"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 formItem">
+                <div class="formField">
+                    <label>Quartos</label>
+                    <div class="volume">
+                        <a href="#" class="btn btn-gray btn-round-left"><span class="fa fa-angle-left"></span></a>
+                        <input type="text" class="form-control" readonly="readonly" value="1">
+                        <a href="#" class="btn btn-gray btn-round-right"><span class="fa fa-angle-right"></span></a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 formItem">
+                <div class="formField">
+                    <label>Banheiro</label>
+                    <div class="volume">
+                        <a href="#" class="btn btn-gray btn-round-left"><span class="fa fa-angle-left"></span></a>
+                        <input type="text" class="form-control" readonly="readonly" value="1">
+                        <a href="#" class="btn btn-gray btn-round-right"><span class="fa fa-angle-right"></span></a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="resultsList">
+    <div class="row">
+@foreach (var item in Model)
+{     
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <a href="/Imoveis/Detalhes/@Html.DisplayFor(model => item.Id)" class="card">
+                <div class="figure">
+                    <img src="/images/imoveis/thumb/@item.Image" alt="image">
+                    <div class="figCaption">
+                        <div></div>
+                        <span class="icon-eye"> 200</span>
+                        <span class="icon-heart"> 54</span>
+                        <span class="icon-bubble"> 13</span>
+                    </div>
+                    <div class="figView"><span class="icon-eye"></span></div>
+                    <div class="figType">
+                        @Html.DisplayFor(model => item.Type)
+                    </div>
+                </div>
+                <h2>@Html.DisplayFor(model => item.Title)</h2>
+                <div class="cardAddress"><span class="icon-pointer"></span> @Html.DisplayFor(model => item.Address)</div>
+                <div class="cardRating">
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star-o"></span>
+                    (146)
+                </div>
+                <ul class="cardFeat">
+                    <li><span class="fa fa-moon-o"></span> @Html.DisplayFor(model => item.Bedrooms)</li>
+                    <li><span class="icon-drop"></span> @Html.DisplayFor(model => item.Bathrooms)</li>
+                    <li><span class="icon-frame"></span> @Html.DisplayFor(model => item.Area) m2</li>
+                </ul>
+                <div class="clearfix"></div>
+            </a>
+        </div>
+}     
+    </div>
+    @*<ul class="pagination">
+        <li class="disabled"><a href="#"><span class="fa fa-angle-left"></span></a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#"><span class="fa fa-angle-right"></span></a></li>
+    </ul>*@
+</div>
+
+@section Scripts{
+    <script>
+    $(function () {
+        var imoveis = @Html.Raw(Json.Encode(Model));
+        applyBindings(imoveis);
+    });
+    </script>
+}

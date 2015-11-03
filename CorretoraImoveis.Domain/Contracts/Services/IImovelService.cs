@@ -10,6 +10,6 @@ namespace CorretoraImoveis.Domain.Contracts.Services
 {
     public interface IImovelService : IServiceBase<Imovel>
     {
-
+       
     }
 }

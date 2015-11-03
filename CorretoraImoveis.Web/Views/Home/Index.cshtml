@@ -1,240 +1,213 @@
-﻿@{
-    ViewBag.Title = "Página inicial";
-}
+﻿@using CorretoraImoveis.Web.Areas.Admin.Models
+@model CorretoraImoveis.Web.Areas.Admin.Models.LoginViewModel
 
-<div class="jumbotron">
-    <h2>Eternity Clinica Agendamento Online.</h2>
-    <p class="lead">ASP.NET Identity é o novo componente de membership que sempre quisermos ter sem precisar fazer.</p>
-    <p><a href="http://www.varcalsys.com.br" target="_blank" class="btn btn-primary btn-large">Aprenda mais &raquo;</a></p>
-</div>
 
 @{
-
-    if (TempData["AvisoEmail"] != null)
-    {
-        <h4 class="text-danger">@TempData["AvisoEmail"]</h4>
-    }
+    ViewBag.Title = "Varçal Imóveis | Home";
+    Layout = null;
 }
 
-@*<div class="row">
-    <div class="col-md-4">
-        <dl>
-            <dt>Initialize ASP.NET Identity</dt>
-            <dd>
-                You can initialize ASP.NET Identity when the application starts. Since ASP.NET Identity is Entity Framework based in this sample,
-                you can create DatabaseInitializer which is configured to get called each time the app starts.
-                <strong>Please look in App_Start\IdentityConfig.cs</strong>
-                This code shows the following
-                <ul>
-                    <li>When should the Initializer run and when should the database be created</li>
-                    <li>Create Admin user</li>
-                    <li>Create Admin role</li>
-                    <li>Add Admin user to Admin role</li>
-                </ul>
-            </dd>
-        </dl>
-    </div>
-    <div class="col-md-4">
-        <dl>
-            <dt>Add profile data for the user</dt>
-            <dd>
-                <a href="http://blogs.msdn.com/b/webdev/archive/2013/10/16/customizing-profile-information-in-asp-net-identity-in-vs-2013-templates.aspx">Please follow this tutorial.</a>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Varçal Imóveis</title>
 
-                <ul>
-                    <li>Add profile information in the Users Table</li>
-                    <li>Look in Models\IdentityModels.cs for examples</li>
-                </ul>
-            </dd>
-        </dl>
-    </div>
-    <div class="col-md-4">
-        <dl>
-            <dt>Validation</dt>
-            <dd>
-                When you create a User using a username or password, the Identity system performs validation on the username and password, and the passwords are hashed before they are
-                stored in the database. You can customize the validation by changing some of the properties of the validators such as Turn alphanumeric on/off, set minimum password length
-                or you can write your own custom validators and register them with the UserManager.
-            </dd>
-        </dl>
-    </div>
-    <div class="col-md-4">
-        <dl>
-            <dt>Register a user and login</dt>
-            <dd>
-                Click @Html.ActionLink("Register", "Register", "Account") and see the code in AccountController.cs and Register Action.
-                Click @Html.ActionLink("Log in", "Login", "Account") and see the code in AccountController.cs and Login Action.
-            </dd>
-        </dl>
-    </div>
-    <div class="col-md-4">
-        <dl>
-            <dt>Social Logins</dt>
-            <dd>
-                You can the support so that users can login using their Facebook, Google, Twitter, Microsoft Account and more.
-            </dd>
-            <dd>
-                <ul>
-                    <li>
-                        <a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/">Add Social Logins</a>
-                    </li>
-                    <li>
-                        <a href="http://blogs.msdn.com/b/webdev/archive/2013/10/16/get-more-information-from-social-providers-used-in-the-vs-2013-project-templates.aspx">Get more data about the user when they login suing Facebook</a>
-                    </li>
-                </ul>
-            </dd>
-        </dl>
-    </div>
-    <div class="col-md-4">
-        <dl>
-            <dt>Basic User Management</dt>
-            <dd>
-                Do Create, Update, List and Delete Users.
-                Assign a Role to a User.
-                Only Users In Role Admin can access this page. This uses the [Authorize(Roles = "Admin")] on the UserAdmin controller.
-            </dd>
-        </dl>
-    </div>
-    <div class="col-md-4">
-        <dl>
-            <dt>Basic Role Management</dt>
-            <dd>
-                Do Create, Update, List and Delete Roles.
-                Only Users In Role Admin can access this page. This authorization is doen by using the [Authorize(Roles = "Admin")] on the RolesAdmin controller.
-            </dd>
-        </dl>
-    </div>
-    <div class="col-md-4">
-        <dl>
-            <dt>Account Confirmation</dt>
-            <dd>
-                When you register a new account, you will be sent an email confirmation.
-                You can use an email service such as <a href="http://www.windowsazure.com/en-us/documentation/articles/sendgrid-dotnet-how-to-send-email/">SendGrid</a> which integrate nicely with Windows Azure and requires no configuration or
-                set up an SMTP server to send email.
-                You can send email using the EmailService which is registered in App_Start\IdentityConfig.cs
-            </dd>
-        </dl>
-    </div>
-    <div class="col-md-4">
-        <dl>
-            <dt>Two-Factor Authentication</dt>
-            <dd>
-                This sample shows how you can use Two-Factor authentication. This sample has a SMS and email service registered where you can send SMS or email for sending the security code.
-                You can add more two-factor authentication factors such as QR codes and plug them into ASP.NET Identity.
-                <ul>
-                    <li>
-                        You can use a SMS using <a href="https://www.twilio.com/">Twilio</a> or use any means of sending SMS. Please <a href="https://www.twilio.com/docs/quickstart/csharp/sms/sending-via-rest">read</a> for more details on using Twilio.
-                        You can send SMS using the SmsService which is registered in App_Start\IdentityConfig.cs
-                    </li>
-                    <li>
-                        You can use an email service such as <a href="http://www.windowsazure.com/en-us/documentation/articles/sendgrid-dotnet-how-to-send-email/">SendGrid</a> or
-                        set up an SMTP server to send email.
-                        You can send email using the EmailService which is registered in App_Start\IdentityConfig.cs
-                    </li>
+    <link href="/Content/css/font-awesome.css" rel="stylesheet">
+    <link href="/Content/css/simple-line-icons.css" rel="stylesheet">
+    <link href="/Content/css/fullscreen-slider.css" rel="stylesheet">
+    <link href="/Content/css/bootstrap.css" rel="stylesheet">
+    <link href="/Content/css/app-blue.css" rel="stylesheet">
 
-                    <li>
-                        When you login, you can add a phone number by clicking the Manage page.
-                    </li>
-                    <li>
-                        Once you add a phone number and have the Phone service hooked to send a SMS, you will get a code through SMS to confirm your phone number.
-                    </li>
-                    <li>
-                        In the Manage page, you can turn on Two-Factor authentication.
-                    </li>
-                    <li>
-                        When you logout and login, after you enter the username and password, you will get an option of how to get the security code to use for two-factor authentication.
-                    </li>
-                    <li>
-                        You can copy the code from your SMS or email and enter in the form to login.
-                    </li>
-                    <li>
-                        The sample also shows how to protect against Brute force attacks against two-factor codes. When you enter a code incorrectly for 5 times then you will be
-                        lockedout for 5 min before you can enter a new code. These settings can be configured in App_Start\IdentityConfig.cs by setting  DefaultAccountLockoutTimeSpan and MaxFailedAccessAttemptsBeforeLockout on the UserManager.
-                    </li>
-                    <li>
-                        If the machine you are browsing this website is your own machine, you can choose to check the "Remember Me" option after you enter the code.
-                        This option will remember you forever on this machine and will not ask you for the two-factor authentication, the next time when you login to the website.
-                        You can change your "Remember Me" settings for two-factor authentication in the Manage page.
-                    </li>
-                </ul>
-            </dd>
-        </dl>
-    </div>
-    <div class="col-md-4">
-        <dl>
-            <dt>Account Lockout</dt>
-            <dd>
-                Provide a way to Lockout out the user if the user enters their password or two-factor codes incorrectly.
-                The number of invalid attempts and the timespan for the users are locked out can be configured.
-                A developer can optionally turn off Account Lockout for certain user accounts should they need to.
-            </dd>
-            <ul>
-                <li>Account LockOut settings can be configured in the UserManager in IdentityConfig.cs</li>
-            </ul>
-        </dl>
-    </div>
-    <div class="col-md-4">
-        <dl>
-            <dt>Security Token provider</dt>
-            <dd>
-                Support a way to regenerate the Security Token for the user in cases when the User changes there password or any other security related information such as removing an associated login(such as Facebook, Google, Microsoft Account etc).
-                This is needed to ensure that any tokens generated with the old password are invalidated. In the sample project, if you change the users password then a new token is generated for the user and any previous tokens are invalidated.
-                This feature provides an extra layer of security to your application since when you change your password, you will be logged out from everywhere (all other browsers) where you have logged into this application.
-            </dd>
-            <dd>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="notransition no-hidden">
+
+    <!-- Hero -->
+
+    <div id="hero-container">
+        <ul class="cb-slideshow">
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+        </ul>
+        <div class="home-header">
+            <div class="home-logo osLight"><span class="fa fa-home"></span> Varçal Imóveis</div>
+            <a href="#" class="home-navHandler visible-xs"><span class="fa fa-bars"></span></a>
+            <div class="home-nav">
                 <ul>
-                    <li>The provider is registered when you add CookieAuthentication in StartupAuth to your application.</li>
+                    <li><a href="#" data-toggle="modal" data-target="#signin">Área Administrativa</a></li>
                 </ul>
-            </dd>
-        </dl>
+            </div>
+        </div>
+        <div class="home-caption">
+            <div class="home-title">Agora ficou fácil encontar o imóvel de seus sonhos</div>
+            <div class="home-subtitle">Aqui você encontra - O Imóvel dos sonhos</div>
+        </div>
+        <div class="search-panel">
+            <form class="form-inline" action="/Home/Index" method="POST" role="form">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="city" placeholder="Bairro" autocomplete="off">
+                </div>
+                <div class="form-group hidden-xs adv">
+                    <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
+                        <span class="dropdown-label">Quarto(s)</span> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-select">
+                        <li class="active"><input type="radio" id="bedrooms" name="bedrooms" value=""checked="checked"><a>Quarto(s)</a></li>
+                        <li><input type="radio" id="bedrooms" name="bedrooms" value="1"><a >1</a></li>
+                        <li><input type="radio" id="bedrooms" name="bedrooms" value="2"><a>2</a></li>
+                        <li><input type="radio" id="bedrooms" name="bedrooms" value="3"><a >3</a></li>
+                        <li><input type="radio" id="bedrooms" name="bedrooms" value="4"><a >4</a></li>
+                    </ul>
+                </div>
+                <div class="form-group hidden-xs adv">
+                    <div class="input-group">
+                        <div class="input-group-addon">R$</div>
+                        <input id="minPrice" name="minPrice" class="form-control price" type="text" placeholder="De">
+                    </div>
+                </div>
+                <div class="form-group hidden-xs adv">
+                    <div class="input-group">
+                        <div class="input-group-addon">R$</div>
+                        <input id="maxPrice" name="maxPrice" class="form-control price" type="text" placeholder="Até">
+                    </div>
+                </div>
+                @*<div class="form-group hidden-xs adv">
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox"><span class="fa fa-check"></span> Casa</label></div>
+                </div>
+                <div class="form-group hidden-xs adv">
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox"><span class="fa fa-check"></span> Apartamento</label></div>
+                </div>*@
+                <div class="form-group">
+                    <input type="submit" class="btn btn-blue" value="Buscar" /> 
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="col-md-4">
-        <dl>
-            <dt>Password Reset</dt>
-            <dd>
-                Allows the user to reset their passwords if they have forgotten their password. In this sample users need to confirm their email before they can reset their passwords.
-            </dd>
-        </dl>
+    <div class="highlight">
+        <div class="h-title osLight">Encontre seu novo Imóvel na Varçal Imóveis</div>
+        <div class="h-text osLight">Fusce risus metus, placerat in consectetur eu, porttitor a est sed sed dolor lorem cras adipiscing</div>
     </div>
-    <div class="col-md-4">
-        <dl>
-            <dt>Custom Storage providers</dt>
-            <dd>
-                You can extend ASP.NET Identity to write your own custom storage provider for storing the ASP.NET Identity system and user data
-                in a persistance system of your choice such as MondoDb, RavenDb, Azure Table Storage etc.
-            </dd>
-            <dd>
-                <ul>
-                    <li>
-                        <a href="http://www.asp.net/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity">
-                            learn more on how to implement your own storage provider
-                        </a>
-                    </li>
-                </ul>
-            </dd>
-        </dl>
+
+    <!-- Footer -->
+
+    <div class="home-footer">
+        <div class="home-wrapper">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <div class="osLight footer-header">A Empresa</div>
+                    <ul class="footer-nav pb20">
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Trabalhos</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Ajuda</a></li>
+                        <li><a href="#">Politica</a></li>
+                        <li><a href="#">Termos e Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <div class="osLight footer-header">Discover</div>
+                    <ul class="footer-nav pb20">
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                        <li><a href="/Imoveis/Pesquisa">Nossos Imóveis</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#signin">Área Administrativa</a></li>
+                        <li><a href="#">Corretores</a></li>
+                        </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <div class="osLight footer-header">Fale Conosco</div>
+                    <ul class="footer-nav pb20">
+                        <li class="footer-phone"><span class="fa fa-phone"></span> +55 (11) 2345-2678</li>
+                        <li class="footer-address osLight">
+                            <p>Rua dos Teste, 98</p>
+                            <p>São Paulo, SP</p>
+                            <p>Brasil</p>
+                        </li>
+                        <li><a href="#" class="btn btn-sm btn-icon btn-round btn-o btn-white"><span class="fa fa-facebook"></span></a> <a href="#" class="btn btn-sm btn-icon btn-round btn-o btn-white"><span class="fa fa-twitter"></span></a> <a href="#" class="btn btn-sm btn-icon btn-round btn-o btn-white"><span class="fa fa-google-plus"></span></a> <a href="#" class="btn btn-sm btn-icon btn-round btn-o btn-white"><span class="fa fa-linkedin"></span></a> </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <div class="osLight footer-header">Inscreva-se para receber nossa Newsletter</div>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                            <a href="#" class="btn btn-blue btn-block">Envivar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">VarçalSys Soluções<br> &copy; @DateTime.Now.Year</div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <dl>
-            <dt>Documentation</dt>
-            <dd>
-                <ul>
-                    <li>
-                        Tutorials: <a href="www.asp.net/identity">www.asp.net/identity</a>
-                    </li>
-                    <li>
-                        StackOverflow: <a href="http://stackoverflow.com/questions/tagged/asp.net-identity">http://stackoverflow.com/questions/tagged/asp.net-identity</a>
-                    </li>
-                    <li>
-                        Twitter: #identity #aspnet
-                    </li>
-                    <li>
-                        <a href="http://curah.microsoft.com/55636/aspnet-identity">ASP.NET Identity on curah</a>
-                    </li>
-                    <li>
-                        Have bugs or suggestions for ASP.NET Identity <a href="http://aspnetidentity.codeplex.com/">http://aspnetidentity.codeplex.com/</a>
-                    </li>
-                </ul>
-            </dd>
-        </dl>
-    </div>
-</div>*@
+
+    <div class="modal fade" id="signin" role="dialog" aria-labelledby="signinLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="signinLabel">Faça seu login</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" action="/Admin/Account/Login" method="POST">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="btn-group-justified">
+                                <a href="" class="btn btn-lg btn-facebook"><span class="pull-left"></span>Acesso Área Administrativa</a>
+                            </div>
+                        </div>
+                       <div class="signOr"></div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Digite seu Email" class="form-control" name="Email" id="Email">
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Digite sua Senha" class="form-control" name="Password" id="Password">
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="checkbox custom-checkbox"><label><input type="checkbox" name="RememberMe" id="RememberMe" value="true"><span class="fa fa-check"></span> Lembre-me</label></div>
+                                </div>
+                                <div class="col-xs-6 align-right">
+                                    <p class="help-block"><a href="/Admin/Account/ForgotPassword" class="text-blue">Esqueceu sua senha?</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="btn-group-justified">
+                                <input type="submit" class="btn-lg btn-blue" value="Entrar"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>          
+     </div>
+  
+
+    
+    <script src="/Scripts/js/jquery-2.1.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="/Scripts/js/jquery-ui.min.js"></script>
+    <script src="/Scripts/js/jquery-ui-touch-punch.js"></script>
+    <script src="/Scripts/js/jquery.placeholder.js"></script>
+    <script src="/Scripts/js/bootstrap.js"></script>
+    <script src="/Scripts/js/jquery.touchSwipe.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=true&amp;libraries=geometry&amp;libraries=places" type="text/javascript"></script>
+    <script src="/Scripts/js/infobox.js"></script>
+    <script src="/Scripts/js/jquery.visible.js"></script>
+    <script src="/Scripts/js/home.js" type="text/javascript"></script>
+</body>
+</html>

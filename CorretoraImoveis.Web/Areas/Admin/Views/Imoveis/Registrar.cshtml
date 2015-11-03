@@ -1,0 +1,140 @@
+﻿@model CorretoraImoveis.Web.Areas.Admin.Models.ImovelViewModel
+@{
+    ViewBag.Title = "Registrar";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout1.cshtml";
+}
+<div class="rightContainer">
+    <h1>Inserir Novo Imóvel</h1>
+    @using (Html.BeginForm("Registrar", "Imoveis", FormMethod.Post, new { role = " form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @*@Html.ValidationSummary()*@
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <div class="form-group">
+                    <label>Titulo</label>
+                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Title)
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label>Valor</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">R$</div>
+                        @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(x => x.Price)
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Descrição</label>    
+            @Html.TextAreaFor(x => x.Description, new { @class = "form-control", rows="4" })
+            @Html.ValidationMessageFor(x => x.Description)
+        </div>
+       
+        <div class="form-group">
+            <label>Endereço</label>
+            @Html.HiddenFor(x => x.Lat)
+            @Html.HiddenFor(x => x.Lng)
+            @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })          
+            @Html.ValidationMessageFor(x => x.Address)
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="form-group">
+                    <label>Quarto(s)</label>
+                    @Html.TextBoxFor(x => x.Bedrooms, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Bedrooms)
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="form-group">
+                    <label>Banheiro(s)</label>
+                    @Html.TextBoxFor(x => x.Bathrooms, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Bathrooms)
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="form-group">
+                    <label>Área</label>
+                    <div class="input-group">
+                        @Html.TextBoxFor(x => x.Area, new { @class = "form-control" })
+                        <div class="input-group-addon">m2</div>
+                    </div>
+                    @Html.ValidationMessageFor(x => x.Area)
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="btn-group">
+                    <label>Tipo</label>
+                    <div class="clearfix"></div>
+                    <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                        <span class="dropdown-label">Tipo</span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-select">
+                        <li class="active"><input type="radio" name="Type" id="Type" value="Casa"><a href="#">Casa</a></li>
+                        <li><input type="radio" name="Type" id="Type" value="Apartamento"><a href="#">Apartamento</a></li>
+                    </ul>
+                    @Html.ValidationMessageFor(x => x.Type)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                    <label>Galeira de Fotos</label>
+                    @Html.TextBoxFor(x=>x.Images, new{type="file", @class="file", multiple="multiple"})   
+                    @Html.ValidationMessageFor(x => x.Images)
+                    <p class="help-block">Você pode selecionar várias fotos</p>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label>Amenities</label>
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" id="Garage" name="Garage" value="true"><span class="fa fa-check"></span> Garagem</label></div>
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" id="SecuritySystem" name="SecuritySystem" value="true"><span class="fa fa-check"></span> Sistema de Segurança</label></div>
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" id="AirConditioning" name="AirConditioning" value="true"><span class="fa fa-check"></span> Ar Condicionado</label></div>
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" id="Balcony" name="Balcony" value="true"><span class="fa fa-check"></span> Varanda</label></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label>&nbsp;</label>
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" id="OutdoorPool" name="OutdoorPool" value="true"><span class="fa fa-check"></span> Piscina</label></div>
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" id="Internet" name="Internet" value="true"><span class="fa fa-check"></span> Internet</label></div>
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" id="Heating" name="Heating" value="true"><span class="fa fa-check"></span> Aquecimento</label></div>
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" id="TvCable" name="TvCable" value="true"><span class="fa fa-check"></span> TV à Cabo</label></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label>&nbsp;</label>
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" id="Garden" name="Garden" value="true"><span class="fa fa-check"></span> Jardim</label></div>
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" id="Telephone" name="Telephone" value="true"><span class="fa fa-check"></span> Telefone</label></div>
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox" id="Fireplace" name="FirePlace" value="true"><span class="fa fa-check"></span> Churrasqueira</label></div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Adicionar Imóvel" class="btn btn-blue btn-lg" />
+        </div>
+    }
+</div>
+@section Scripts{
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(function () {
+            var imoveis = @Html.Raw(Json.Encode(@ViewBag.Imoveis));
+            applyBindings(imoveis);
+        });
+    </script>
+}
+

@@ -84,7 +84,7 @@ namespace CorretoraImoveis.Web.Areas.Admin.Controllers
                         TempData["AvisoEmail"] = "Usuário não confirmado, verifique seu e-mail.";
                     }
                     await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Registrar","Imoveis");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

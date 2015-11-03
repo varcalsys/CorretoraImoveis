@@ -7,7 +7,7 @@ namespace CorretoraImoveis.Security.ContextIdentity
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("CorretoraImoveis", throwIfV1Schema: false)
+            : base("CorretoraImoveisContext", throwIfV1Schema: false)
         {
 
         }

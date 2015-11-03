@@ -10,5 +10,7 @@ namespace CorretoraImoveis.App.Contracts
     {
         T GetById(int id);
         IEnumerable<T> GetAll();
+        void Commit();
+       
     }
 }

@@ -13,17 +13,19 @@ namespace CorretoraImoveis.App
     {
 
         private readonly IImovelService _imovelService;
+        private readonly IFotoService _fotoService;
 
-        public ImovelApp(IImovelService imovelService)
+        public ImovelApp(IImovelService imovelService, IFotoService fotoService)
         {
             _imovelService = imovelService;
+            _fotoService = fotoService;
         }
 
         public void Register(Imovel imovel)
         {
             try
             {
-                _imovelService.Save(imovel);
+                _imovelService.Add(imovel);
                 _imovelService.Commit();
             }
             catch (Exception ex)
@@ -36,14 +38,21 @@ namespace CorretoraImoveis.App
 
         public void UpDate(Imovel imovel)
         {
-            _imovelService.Save(imovel);
+            _imovelService.Update(imovel);
             _imovelService.Commit();
         }
 
         public void Delete(Imovel imovel)
         {
-            _imovelService.Delete(imovel);
-            _imovelService.Commit();
+            try
+            {
+                _imovelService.Delete(imovel);
+                _imovelService.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public Imovel GetById(int id)
@@ -54,6 +63,11 @@ namespace CorretoraImoveis.App
         public IEnumerable<Imovel> GetAll()
         {
             return _imovelService.GetAll();
+        }
+
+        public void Commit()
+        {
+           _imovelService.Commit();
         }
     }
 }

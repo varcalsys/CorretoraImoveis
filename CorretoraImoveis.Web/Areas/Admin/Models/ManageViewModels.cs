@@ -34,7 +34,7 @@ namespace CorretoraImoveis.Web.Areas.Admin.Models
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Repita Nova Senha")]
+        [Display(Name = "Repita Senha")]
         [Compare("NewPassword", ErrorMessage = "As senhas não se coincidem.")]
         public string ConfirmPassword { get; set; }
     }
@@ -53,7 +53,7 @@ namespace CorretoraImoveis.Web.Areas.Admin.Models
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Repita Nova Senha")]
+        [Display(Name = "Repita Senha")]
         [Compare("NewPassword", ErrorMessage = "As senhas não se coincidem.")]
         public string ConfirmPassword { get; set; }
     }
