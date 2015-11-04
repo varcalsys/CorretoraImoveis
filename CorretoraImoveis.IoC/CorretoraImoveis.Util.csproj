@@ -87,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Helper.cs" />
     <Compile Include="NInject\IoC.cs" />
     <Compile Include="NInject\IoCDependencyResolver.cs" />
     <Compile Include="NInject\IoCModule.cs" />
@@ -106,9 +107,7 @@
       <Name>CorretoraImoveis.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

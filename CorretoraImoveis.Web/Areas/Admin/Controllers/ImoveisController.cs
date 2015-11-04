@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CorretoraImoveis.App.Contracts;
 using CorretoraImoveis.Domain.Entities;
+using CorretoraImoveis.Util.Common;
 using CorretoraImoveis.Web.Areas.Admin.Models;
 
 
@@ -44,6 +44,7 @@ namespace CorretoraImoveis.Web.Areas.Admin.Controllers
         public ActionResult Registrar(ImovelViewModel model)
         {
             var fotos = new List<Foto>();
+
             try
             {
                 if (!ModelState.IsValid)
@@ -51,7 +52,6 @@ namespace CorretoraImoveis.Web.Areas.Admin.Controllers
 
                     return View(model);
                 }
-
 
 
                 var imovel = new Imovel
@@ -81,10 +81,11 @@ namespace CorretoraImoveis.Web.Areas.Admin.Controllers
                 };
 
 
-                fotos = Load(model.Images);
+                fotos = Helper.LoadFiles(model.Images, Server.MapPath("~/"));
 
                 imovel.Image = fotos[0].Nome;
                 imovel.Fotos = fotos;
+               _imovelApp.Register(null);              
                _imovelApp.Register(imovel);   
                            
                _imovelApp.Commit();
@@ -93,39 +94,10 @@ namespace CorretoraImoveis.Web.Areas.Admin.Controllers
             }
             catch (Exception)
             {
-                DeleteImages(fotos);
-                return View(model);
+                ViewBag.Message = "Erro ao registrar imóvel";
+                Helper.DeleteFiles(fotos);
+                return RedirectToAction("Registrar");
             }
-        }
-
-        public List<Foto> Load(HttpPostedFileBase[] files)
-        {
-
-            var fotos = new List<Foto>();
-
-            foreach (HttpPostedFileBase file in files)
-            {
-                var foto = new Foto();
-                byte[] arraybytes = null;
-                foto.Nome = DateTime.Now.ToString("yyyy-MM-dd") + DateTime.Now.Millisecond + ".jpg";
-                long numeroBytes = file.InputStream.Length;
-                BinaryReader br = new BinaryReader(file.InputStream);
-                arraybytes = br.ReadBytes((int)numeroBytes);
-                var ms = new MemoryStream(arraybytes);
-                Image image = Image.FromStream(ms);
-
-                var _bmp = new Bitmap(image, new Size(800, 480));
-                foto.UrlFoto = Path.Combine(Server.MapPath("~/images/imoveis"), Path.GetFileName(foto.Nome));
-                _bmp.Save(foto.UrlFoto, ImageFormat.Jpeg);
-
-                var thumb = new Bitmap(image, new Size(400, 240));
-                foto.UrlThumb = Path.Combine(Server.MapPath("~/images/imoveis/thumb"), Path.GetFileName(foto.Nome));
-                thumb.Save(foto.UrlThumb, ImageFormat.Jpeg);
-
-                fotos.Add(foto);
-            }
-
-            return fotos;
         }
 
         public void DeleteImages(IList<Foto> fotos)
