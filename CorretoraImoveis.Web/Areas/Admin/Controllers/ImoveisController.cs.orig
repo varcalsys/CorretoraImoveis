@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+<<<<<<< HEAD
 using System.Linq;
+=======
+>>>>>>> bce47078a948635a8edd410a6bfb8b67ced4afca
 using System.Web;
 using System.Web.Mvc;
 using CorretoraImoveis.App.Contracts;
 using CorretoraImoveis.Domain.Entities;
+<<<<<<< HEAD
+=======
 using CorretoraImoveis.Util.Common;
+>>>>>>> bce47078a948635a8edd410a6bfb8b67ced4afca
 using CorretoraImoveis.Web.Areas.Admin.Models;
 
 
@@ -45,7 +51,10 @@ namespace CorretoraImoveis.Web.Areas.Admin.Controllers
         public ActionResult Registrar(ImovelViewModel model)
         {
             var fotos = new List<Foto>();
+<<<<<<< HEAD
+=======
 
+>>>>>>> bce47078a948635a8edd410a6bfb8b67ced4afca
             try
             {
                 if (!ModelState.IsValid)
@@ -82,22 +91,77 @@ namespace CorretoraImoveis.Web.Areas.Admin.Controllers
                 };
 
 
+<<<<<<< HEAD
+                fotos = Load(model.Images);
+=======
                 fotos = Helper.LoadFiles(model.Images, Server.MapPath("~/"));
+                imovel.Image = fotos[0].Nome;
+>>>>>>> bce47078a948635a8edd410a6bfb8b67ced4afca
 
                 imovel.Image = fotos[0].Nome;
                 imovel.Fotos = fotos;
+<<<<<<< HEAD
                _imovelApp.Register(imovel);   
                            
                _imovelApp.Commit();
+=======
+
+               _imovelApp.Register(null);              
+
+              _imovelApp.Commit();
+>>>>>>> bce47078a948635a8edd410a6bfb8b67ced4afca
 
                 return RedirectToAction("Registrar");
             }
             catch (Exception)
             {
+<<<<<<< HEAD
+                DeleteImages(fotos);
+                return View(model);
+            }
+        }
+
+        public List<Foto> Load(HttpPostedFileBase[] files)
+        {
+
+            var fotos = new List<Foto>();
+
+            foreach (HttpPostedFileBase file in files)
+            {
+                var foto = new Foto();
+                byte[] arraybytes = null;
+                foto.Nome = DateTime.Now.ToString("yyyy-MM-dd") + DateTime.Now.Millisecond + ".jpg";
+                long numeroBytes = file.InputStream.Length;
+                BinaryReader br = new BinaryReader(file.InputStream);
+                arraybytes = br.ReadBytes((int)numeroBytes);
+                var ms = new MemoryStream(arraybytes);
+                Image image = Image.FromStream(ms);
+
+                var _bmp = new Bitmap(image, new Size(800, 480));
+                foto.UrlFoto = Path.Combine(Server.MapPath("~/images/imoveis"), Path.GetFileName(foto.Nome));
+                _bmp.Save(foto.UrlFoto, ImageFormat.Jpeg);
+
+                var thumb = new Bitmap(image, new Size(400, 240));
+                foto.UrlThumb = Path.Combine(Server.MapPath("~/images/imoveis/thumb"), Path.GetFileName(foto.Nome));
+                thumb.Save(foto.UrlThumb, ImageFormat.Jpeg);
+
+                fotos.Add(foto);
+=======
                 ViewBag.Message = "Erro ao registrar imóvel";
                 Helper.DeleteFiles(fotos);
                 return RedirectToAction("Registrar");
+>>>>>>> bce47078a948635a8edd410a6bfb8b67ced4afca
             }
+        }
+
+        public void DeleteImages(IList<Foto> fotos)
+        {
+            if(fotos.Any())
+                foreach (var foto in fotos)
+                {
+                    System.IO.File.Delete(foto.UrlFoto);
+                    System.IO.File.Delete(foto.UrlThumb);
+                }
         }
     }
 }
