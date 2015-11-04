@@ -49,8 +49,8 @@ namespace CorretoraImoveis.Web.Controllers
         {
             var imovel = _imovelApp.GetById(id);
 
-            var fotos = _fotoApp.GetByImagesImovelId(id);
-            imovel.Fotos = fotos.ToList();           
+            _fotoApp.GetByImagesImovelId(id);
+            imovel.Fotos = _fotoApp.GetByImagesImovelId(id).ToList();
             ViewBag.Imoveis = imovel;
             return View(imovel);
         }

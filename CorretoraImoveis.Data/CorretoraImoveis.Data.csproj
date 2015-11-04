@@ -52,6 +52,7 @@
     <Compile Include="ContextDb\CorretoraImoveisContext.cs" />
     <Compile Include="Mapping\FotoMap.cs" />
     <Compile Include="Mapping\ImovelMap.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\FotoRepository.cs" />
     <Compile Include="Repositories\ImovelRepository.cs" />

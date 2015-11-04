@@ -4,12 +4,10 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Net.Configuration;
 using System.Web;
 using System.Web.Mvc;
 using CorretoraImoveis.App.Contracts;
 using CorretoraImoveis.Domain.Entities;
-using CorretoraImoveis.Domain.Services;
 using CorretoraImoveis.Web.Areas.Admin.Models;
 
 
@@ -45,6 +43,7 @@ namespace CorretoraImoveis.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Registrar(ImovelViewModel model)
         {
+            var fotos = new List<Foto>();
             try
             {
                 if (!ModelState.IsValid)
@@ -82,19 +81,19 @@ namespace CorretoraImoveis.Web.Areas.Admin.Controllers
                 };
 
 
-                var fotos = Load(model.Images);
+                fotos = Load(model.Images);
+
                 imovel.Image = fotos[0].Nome;
-
                 imovel.Fotos = fotos;
-
-               _imovelApp.Register(imovel);              
-
-              _imovelApp.Commit();
+               _imovelApp.Register(imovel);   
+                           
+               _imovelApp.Commit();
 
                 return RedirectToAction("Registrar");
             }
             catch (Exception)
             {
+                DeleteImages(fotos);
                 return View(model);
             }
         }
@@ -127,6 +126,16 @@ namespace CorretoraImoveis.Web.Areas.Admin.Controllers
             }
 
             return fotos;
+        }
+
+        public void DeleteImages(IList<Foto> fotos)
+        {
+            if(fotos.Any())
+                foreach (var foto in fotos)
+                {
+                    System.IO.File.Delete(foto.UrlFoto);
+                    System.IO.File.Delete(foto.UrlThumb);
+                }
         }
     }
 }

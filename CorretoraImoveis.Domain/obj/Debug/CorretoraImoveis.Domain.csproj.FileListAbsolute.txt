@@ -1,0 +1,5 @@
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Domain\bin\Debug\CorretoraImoveis.Domain.dll
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Domain\bin\Debug\CorretoraImoveis.Domain.pdb
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Domain\obj\Debug\CorretoraImoveis.Domain.csprojResolveAssemblyReference.cache
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Domain\obj\Debug\CorretoraImoveis.Domain.dll
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Domain\obj\Debug\CorretoraImoveis.Domain.pdb

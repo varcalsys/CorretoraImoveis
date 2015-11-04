@@ -1,0 +1,12 @@
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Data\bin\Debug\CorretoraImoveis.Data.dll.config
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Data\bin\Debug\CorretoraImoveis.Data.dll
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Data\bin\Debug\CorretoraImoveis.Data.pdb
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Data\bin\Debug\CorretoraImoveis.Domain.dll
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Data\bin\Debug\EntityFramework.dll
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Data\bin\Debug\CorretoraImoveis.Domain.pdb
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Data\bin\Debug\EntityFramework.xml
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Data\obj\Debug\CorretoraImoveis.Data.csprojResolveAssemblyReference.cache
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Data\obj\Debug\CorretoraImoveis.Data.dll
+C:\Users\cevarcal\Documents\Visual Studio 2013\Projects\CorretoraImoveis\CorretoraImoveis.Data\obj\Debug\CorretoraImoveis.Data.pdb
