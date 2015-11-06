@@ -658,7 +658,7 @@
 
     <script>
         $(function () {
-            var imoveis = @Html.Raw(Json.Encode(Model));
+            var imoveis = @Html.Raw(Json.Encode(ViewBag.Imoveis));
             applyBindings(imoveis);
         });
     </script>

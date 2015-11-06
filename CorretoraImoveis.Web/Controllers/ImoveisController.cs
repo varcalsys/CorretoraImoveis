@@ -48,10 +48,10 @@ namespace CorretoraImoveis.Web.Controllers
         public ActionResult Detalhes(int id)
         {
             var imovel = _imovelApp.GetById(id);
-
-            _fotoApp.GetByImagesImovelId(id);
-            imovel.Fotos = _fotoApp.GetByImagesImovelId(id).ToList();
-            ViewBag.Imoveis = imovel;
+            var imoveis = new List<Imovel>();
+            //imovel.Fotos = _fotoApp.GetByImagesImovelId(id).ToList();
+            imoveis.Add(imovel);
+            ViewBag.Imoveis = imoveis;
             return View(imovel);
         }
     }

@@ -35,9 +35,9 @@ namespace CorretoraImoveis.Data.Mapping
             this.Property(t => t.ImovelId).HasColumnName("ImovelId");
 
             // Relationships
-            this.HasRequired(t => t.Imovel)
-                .WithMany(t => t.Fotos)
-                .HasForeignKey(d => d.ImovelId);
+            //this.HasRequired(t => t.Imovel)
+            //    .WithMany(t => t.Fotos)
+            //    .HasForeignKey(d => d.ImovelId);
 
         }
     }

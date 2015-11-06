@@ -10,6 +10,10 @@ namespace CorretoraImoveis.Data.Mapping
             // Primary Key
             this.HasKey(t => t.Id);
 
+            HasMany(x => x.Fotos)
+                .WithRequired()
+                .HasForeignKey(x=>x.ImovelId);
+
             // Properties
             Property(t => t.Title)
                 .IsRequired()

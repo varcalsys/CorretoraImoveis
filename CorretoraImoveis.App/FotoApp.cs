@@ -34,7 +34,7 @@ namespace CorretoraImoveis.App
             return _fotoService.GetById(id);
         }
 
-        public IEnumerable<Foto> GetAll()
+        public IQueryable<Foto> GetAll()
         {
            return _fotoService.GetAll();
         }

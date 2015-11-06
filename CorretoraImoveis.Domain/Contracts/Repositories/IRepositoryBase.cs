@@ -13,7 +13,7 @@ namespace CorretoraImoveis.Domain.Contracts.Repositories
 
         void Delete(T entity);
         T GetById(int id);
-        IEnumerable<T> GetAll();
+        IQueryable<T> GetAll();
 
         void Commit();
        

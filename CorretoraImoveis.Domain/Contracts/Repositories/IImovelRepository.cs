@@ -9,6 +9,6 @@ namespace CorretoraImoveis.Domain.Contracts.Repositories
 {
     public interface IImovelRepository: IRepositoryBase<Imovel>
     {
-         ICollection<Foto> GetByImagesImovelId(int id);
+         ICollection<Foto> GetByImagesImovelId(int id);       
     }
 }

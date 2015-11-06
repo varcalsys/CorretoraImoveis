@@ -60,7 +60,7 @@ namespace CorretoraImoveis.App
             return _imovelService.GetById(id);
         }
 
-        public IEnumerable<Imovel> GetAll()
+        public IQueryable<Imovel> GetAll()
         {
             return _imovelService.GetAll();
         }

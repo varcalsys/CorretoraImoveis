@@ -10,7 +10,6 @@ namespace CorretoraImoveis.Domain.Entities
         public string UrlFoto { get; set; }
         public string UrlThumb { get; set; }
         public int ImovelId { get; set; }
-        public virtual Imovel Imovel { get; set; }
-
+        //public virtual Imovel Imovel { get; set; }
     }
 }

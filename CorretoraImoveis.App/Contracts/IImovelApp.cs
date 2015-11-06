@@ -14,5 +14,6 @@ namespace CorretoraImoveis.App.Contracts
         void UpDate(Imovel imovel);
         void Delete(Imovel imovel);
 
+
     }
 }

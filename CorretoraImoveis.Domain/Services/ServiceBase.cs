@@ -37,7 +37,7 @@ namespace CorretoraImoveis.Domain.Services
             return _repositoryBase.GetById(id);
         }
 
-        public IEnumerable<T> GetAll()
+        public IQueryable<T> GetAll()
         {
             return _repositoryBase.GetAll();
         }

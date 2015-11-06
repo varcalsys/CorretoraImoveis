@@ -33,12 +33,12 @@ namespace CorretoraImoveis.Data.Repositories
             _context.Set<T>().Remove(entity);
         }
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
             return _context.Set<T>().Find(id);
         }
 
-        public IEnumerable<T> GetAll()
+        public virtual IQueryable<T> GetAll()
         {
             return _context.Set<T>();
         }
